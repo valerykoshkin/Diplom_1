@@ -7,6 +7,7 @@ import praktikum.Ingredient;
 import praktikum.Bun;
 import praktikum.Burger;
 
+import static config.Constants.ZERO_DELTA;
 import static java.lang.String.format;
 import static org.junit.Assert.*;
 import static org.mockito.junit.MockitoJUnit.rule;
@@ -29,7 +30,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void CheckAddIngredient() {
+    public void checkAddIngredient() {
         Burger burger = new Burger();
         burger.addIngredient(ingredient);
         boolean isExist = burger.ingredients.stream().anyMatch(i -> i == ingredient);
@@ -37,7 +38,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void CheckRemoveIngredient() {
+    public void checkRemoveIngredient() {
         Burger burger = new Burger();
         burger.addIngredient(ingredient);
         int realIndex = burger.ingredients.indexOf(ingredient);
@@ -47,7 +48,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void CheckMoveIngredient() {
+    public void checkMoveIngredient() {
         Burger burger = new Burger();
         Ingredient ingredient1 = Mockito.mock(Ingredient.class);
         Ingredient ingredient2 = Mockito.mock(Ingredient.class);
@@ -63,7 +64,7 @@ public class BurgerTest {
     }
 
     @Test
-    public void CheckGetPrice() {
+    public void checkGetPrice() {
         Burger burger = new Burger();
         burger.setBuns(bun);
         burger.addIngredient(ingredient);
@@ -71,11 +72,11 @@ public class BurgerTest {
         Mockito.when(ingredient.getPrice()).thenReturn(50.0F);
         float actual = burger.getPrice();
         float expected = 250.0F;
-        assertEquals(expected, actual, 0.0);
+        assertEquals(expected, actual, ZERO_DELTA);
     }
 
     @Test
-    public void CheckGetReceipt() {
+    public void checkGetReceipt() {
         Burger burger = new Burger();
         burger.setBuns(bun);
         burger.addIngredient(ingredient);

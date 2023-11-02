@@ -3,6 +3,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import praktikum.Bun;
 
+import static config.Constants.ZERO_DELTA;
 import static org.junit.Assert.assertEquals;
 
 @RunWith(Parameterized.class)
@@ -38,6 +39,6 @@ public class BunTest {
     public void checkGetPrice() {
         Bun bun = new Bun(name, price);
         float actualPrice = bun.getPrice();
-        assertEquals(price, actualPrice, 0);
+        assertEquals(price, actualPrice, ZERO_DELTA);
     }
 }

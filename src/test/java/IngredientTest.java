@@ -4,6 +4,7 @@ import org.junit.runners.Parameterized;
 import praktikum.Ingredient;
 import praktikum.IngredientType;
 
+import static config.Constants.ZERO_DELTA;
 import static org.junit.Assert.assertEquals;
 import static praktikum.IngredientType.FILLING;
 import static praktikum.IngredientType.SAUCE;
@@ -59,6 +60,6 @@ public class IngredientTest {
     public void checkGetPrice() {
         Ingredient ingredient = new Ingredient(type, name, price);
         float actualPrice = ingredient.getPrice();
-        assertEquals(expectedPrice, actualPrice, 0.0);
+        assertEquals(expectedPrice, actualPrice, ZERO_DELTA);
     }
 }
